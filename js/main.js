@@ -1,4 +1,4 @@
-// small change
+// another change
 var config = {
     type: Phaser.AUTO,
     width: 800,
