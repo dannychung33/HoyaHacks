@@ -6,8 +6,8 @@ var config = {
     physics: {
         default: 'arcade',
         arcade: {
-            gravity: {y: 500},
-            debug: false
+            gravity: {y: 600},
+            debug: true
         }
     },
     scene: {
@@ -34,6 +34,8 @@ function preload() {
     this.load.spritesheet('tiles', 'assets/tiles.png', {frameWidth: 70, frameHeight: 70});
     // simple coin image
     this.load.image('coin', 'assets/coinGold.png');
+    // load spike png
+    this.load.image('spike', 'assets/spike.png');
     // player animations
     this.load.atlas('player', 'assets/player.png', 'assets/player.json');
 }
@@ -55,7 +57,7 @@ function create() {
     coinLayer = map.createDynamicLayer('Coins', coinTiles, 0, 0);
 
     // set the boundaries of our game world
-    this.physics.world.bounds.width = groundLayer.width;
+    this.physics.world.bounds.width = groundLayer.width + 500;
     this.physics.world.bounds.height = groundLayer.height;
 
     // create the player sprite    
@@ -106,6 +108,32 @@ function create() {
     });
     // fix the text to the camera
     text.setScrollFactor(0);
+    
+    spike1  = this.add.image(300, 460,'spike');
+    spike2 = this.add.image(600, 460, 'spike')
+    this.physics.add.collider(groundLayer, spike1);
+    this.physics.add.collider(groundLayer, spike2);
+
+
+    this.spikes = this.physics.add.group({
+        allowGravity: false,
+        immovable: true
+      });
+    this.spikes.add(spike1);
+    this.spikes.add(spike2);
+
+    // overlap player with spikes
+    this.physics.add.overlap(player, this.spikes, playerHit, null, this);
+
+    /*
+    const spike = this.spikes.create(spike.x, spike.y + 200 - spike.height, 'spike').setOrigin(0,0);
+    spike.body.setSize(spike.width, spike.height - 20).setOffset(0,20);
+    console.log(spike)
+    // Key line
+    this.physics.add.collider(this.player, this.spikes, this.playerHit, null, this);
+    //console.log(spikeObject.height, spikeObject.width)
+  
+    */
 }
 
 // this function will be called when the player touches a coin
@@ -115,8 +143,13 @@ function collectCoin(sprite, tile) {
     text.setText(score); // set the text to show the current score
     return false;
 }
-
+var isGameOver = false;
+var startGame = true;
 function update(time, delta) {
+    if(startGame){
+    if(isGameOver){
+        return;
+    }
     if (cursors.left.isDown)
     {
         player.body.setVelocityX(-600);
@@ -137,4 +170,23 @@ function update(time, delta) {
     {
         player.body.setVelocityY(-500);        
     }
+}
+  }
+
+function playerHit(player, spike) {
+    console.log('player hurt')
+    
+    player.body.setVelocity(0, 0);
+    player.setX(50);
+    player.setY(300);
+    player.play('idle', true);
+    player.setAlpha(0);
+    let tw = this.tweens.add({
+      targets: player,
+      alpha: 1,
+      duration: 100,
+      ease: 'Linear',
+      repeat: 5,
+    });
+    return;
 }
