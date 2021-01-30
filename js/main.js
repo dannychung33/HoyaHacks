@@ -1,3 +1,4 @@
+// small change
 var config = {
     type: Phaser.AUTO,
     width: 800,
@@ -118,13 +119,13 @@ function collectCoin(sprite, tile) {
 function update(time, delta) {
     if (cursors.left.isDown)
     {
-        player.body.setVelocityX(-200);
+        player.body.setVelocityX(-600);
         player.anims.play('walk', true); // walk left
         player.flipX = true; // flip the sprite to the left
     }
     else if (cursors.right.isDown)
     {
-        player.body.setVelocityX(200);
+        player.body.setVelocityX(600);
         player.anims.play('walk', true);
         player.flipX = false; // use the original sprite looking to the right
     } else {
