@@ -61,7 +61,7 @@ function create() {
     this.physics.world.bounds.height = groundLayer.height;
 
     // create the player sprite    
-    player = this.physics.add.sprite(200, 300, 'player');
+    player = this.physics.add.sprite(200, 200, 'player');
     player.setBounce(0.2); // our player will bounce from items
     player.setCollideWorldBounds(true); // don't go out of the map    
     
