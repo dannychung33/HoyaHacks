@@ -33,7 +33,7 @@ function preload() {
     // tiles in spritesheet 
     this.load.spritesheet('tiles', 'assets/tiles.png', {frameWidth: 70, frameHeight: 70});
     // simple coin image
-    this.load.image('coin', 'assets/coinGold.png');
+    this.load.image('coin', 'assets/trash.png');
     // load spike png
     this.load.image('spike', 'assets/spike.png');
     // player animations
