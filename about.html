@@ -1,63 +1,58 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Project Save the World</title>
+  <head>
+    <title>Project Save the World</title>
 
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        <style>
+    <style>
+      body {
+        font-family: Helvetica, sans-serif;
+        color: #05386b;
+      }
+    </style>
 
-            body {
-              font-family: Helvetica, sans-serif;
-              color: #05386B;
-            }
+    <link rel="stylesheet" href="webpage.css" />
+  </head>
+  <body>
+    <div class="navbar" id="myNavbar">
+      <a href="webpage.html" class="active">Home</a>
+      <a href="donate.html">Donate </a>
+      <a href="resources.html">Resources </a>
+      <a href="issues.html">Issues </a>
+      <a href="game.html">Game </a>
+      <a href="about.html">About</a>
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+      </a>
+    </div>
 
-            
-        </style>
+    <h2>
+      <br /><br /><br />
+      About
+    </h2>
 
-        <link rel="stylesheet" href="webpage.css">
-    </head>
-    <body>
+    <p>
+      Project Save the World is an initiative to increase awareness about the
+      environmental crises that we are faced with today. Here you will find an
+      interactive web game to encourage recycling in your community, information
+      on some of the leading issues, steps you can take to help heal the
+      environment, and resources/links to donate to non-profit environmental
+      organizations.
+    </p>
+    <img
+      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFHChgYZ301ktPNxs7E5guivi0lpRf9yOEVw&usqp=CAU"
+    />
+  </body>
 
-        <div class="navbar" id="myNavbar">
-            
-            <a href="webpage.html" class="active">Home</a>
-            <a href="donate.html">Donate </a>
-            <a href="resources.html">Resources </a>
-            <a href="issues.html">Issues </a>
-            <a href="game.html" >Game </a>
-            <a href="about.html" >About</a>
-            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-                <i class="fa fa-bars"></i>
-              </a>
-        </div>
-
-        
-        <h2>
-            <br><br><br>
-            About
-        </h2>
-
-        <p> Project Save the World is an initiative to increase awareness about the environmental crises that we are 
-            faced with today. Here you will find an interactive web game to encourage recycling in your community, information on some of the leading issues, 
-            steps you can take to help heal the environment, and resources/links to donate to non-profit environmental
-            organizations.
-        </p>
-
-    </body>
-
-    <script>
-        function myFunction() {
-            var x = document.getElementById("myNavbar");
-            if (x.className === "navbar") {
-                x.className += " responsive";
-            } 
-            else {
-                x.className = "navbar";
-            }
-        }
-        
-        
-    </script>
-
+  <script>
+    function myFunction() {
+      var x = document.getElementById("myNavbar");
+      if (x.className === "navbar") {
+        x.className += " responsive";
+      } else {
+        x.className = "navbar";
+      }
+    }
+  </script>
 </html>
