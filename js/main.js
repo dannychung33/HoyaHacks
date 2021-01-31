@@ -6,7 +6,7 @@ var config = {
     physics: {
         default: 'arcade',
         arcade: {
-            gravity: {y: 1000},
+            gravity: {y: 800},
             debug: false
         }
     },
@@ -134,7 +134,7 @@ function create() {
     spike12 = this.add.image(5340, 0, 'spike')
     spike13 = this.add.image(4800, 0, 'spike')
     spike14 = this.add.image(5005, 0, 'spike')
-    
+
     this.physics.add.collider(groundLayer, spike0);
     this.physics.add.collider(groundLayer, spike1);
     this.physics.add.collider(groundLayer, spike2);
