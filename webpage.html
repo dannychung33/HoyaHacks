@@ -4,71 +4,63 @@
         
         <title>Project Save the World</title>
 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
         <style>
+
             body {
               font-family: Helvetica, sans-serif;
               color: #05386B;
-              
             }
+
+            
         </style>
 
         <link rel="stylesheet" href="webpage.css">
     </head>
-   
-        <h1 style="font-size:90px; ">
-            <br><br><br>
+   <body >
+
+    <div class="navbar" id="myNavbar">
+            
+        <a href="webpage.html" class="active">Home</a>
+        <a href="donate.html">Donate </a>
+        <a href="resources.html">Resources </a>
+        <a href="issues.html">Issues </a>
+        <a href="game.html" >Game </a>
+        <a href="about.html" >About</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+          </a>
+    </div>
+        <h1 style="font-size:90px; margin: 25px 50px 75px 100px">
+            <br>
+            <iframe title='World average temperature (°C)' src='https://www.theworldcounts.com/embed/challenges/21?background_color=white&color=black&font_family=%22Helvetica+Neue%22%2C+Arial%2C+sans-serif&font_size=25' style='border: none' height='200' width='300'></iframe>
+            <iframe title='Tons of waste dumped' src='https://www.theworldcounts.com/embed/challenges/63?background_color=white&color=black&font_family=%22Helvetica+Neue%22%2C+Arial%2C+sans-serif&font_size=25' style='border: none' height='200' width='300'></iframe>
+            <iframe title='Number of plastic bags produced' src='https://www.theworldcounts.com/embed/challenges/105?background_color=white&color=black&font_family=%22Helvetica+Neue%22%2C+Arial%2C+sans-serif&font_size=25' style='border: none' height='200' width='300'></iframe>
+
+            <br><br>
             Welcome to Project Save the World.
-            <br><br><br><br>
+            
 
+            
         </h1>
-
-        <div class="navbar">
-            
-            <a href="#home">Home</a>
-            <a href="#donate">Donate </a>
-            <a href="#resources">Resources </a>
-            <a href="#issues">Issues </a>
-            <a href="#game" class="nav-item nav-link">Game </a>
-            <a href="#about" class="nav-item nav-link">About</a>
-            
-            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-                <i class="fa fa-bars"></i>
-              </a>
-            
-        </div>
-          
-          <div class="main">
-            <p>Some text some text some text some text..</p>
-        </div>
-
-        <br><br>
-
-        <h2 style="font-size: 45px;">About</h2>
-
-            <p>Site description. Include mission statement and objective.</p>
-            <br><br>
-
-        <h2 style="font-size: 45px;">Recycle Dude Game</h2>
-
-            <p>Recycle Dude game description and instructions. Game below.</p>
-            <br><br>
-
-        <h2 style="font-size: 45px;">Environmental Crises We Face Today</h2>
-
-            <p>List environmental crises</p>
-            <br><br>
-
-        <h2 style="font-size: 45px;">Solutions</h2>
-
-            <p>List solutions.</p>
-            <br><br>
-
-        <h2 style="font-size: 45px;">Links and Resources</h2>
-
-            <p>Links and stuff.</p>
-            <br><br>
+    
 
     </body>
+
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myNavbar");
+            if (x.className === "navbar") {
+                x.className += " responsive";
+            } 
+            else {
+                x.className = "navbar";
+            }
+        }
+        
+        
+    </script>
 
 
 </html>
