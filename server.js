@@ -20,6 +20,14 @@ app.get('/game', (req, res) => {
   res.sendFile(path.join(__dirname + '/game.html'));
 });
 
+app.get('/resources', (req, res) => {
+  res.sendFile(path.join(__dirname + '/resources.html'));
+});
+
+app.get('/issues', (req, res) => {
+  res.senfFile(path.join(__dirname + 'issues.html'))
+})
+
 let port = process.env.PORT || 9000;
 
 app.listen(port, () => {
