@@ -1,26 +1,69 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Recycle Man</title>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"
-    />
+    <title>Project Save the World</title>
 
-    <script type="text/javascript" src="js/phaser.js"></script>
-    <script type="text/javascript" src="js/main.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <style>
       body {
-        padding: 0px;
-        margin-left: 25%;
+        font-family: Helvetica, sans-serif;
+        color: #05386b;
       }
     </style>
-  </head>
 
-  <body style="background-color: gray">
-    <h1 style="position: relative; left: 25%; color: rgb(126, 242, 10)">Recycle Man</h1>
-    <p style="position: relative; left: 27%; color: rgb(3, 82, 3)">Collect 20 bottles</p>
+    <link rel="stylesheet" href="webpage.css" />
+  </head>
+  <body>
+    <div class="navbar" id="myNavbar">
+      <a href="index.html" class="active">Home</a>
+      <a href="donate.html">Donate </a>
+      <a href="resources.html">Resources </a>
+      <a href="issues.html">Issues </a>
+      <a href="game.html">Game </a>
+      <a href="about.html">About</a>
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+      </a>
+    </div>
+    <h1 style="font-size: 90px; margin: 25px 50px 75px 100px">
+      <br />
+      <iframe
+        title="World average temperature (°C)"
+        src="https://www.theworldcounts.com/embed/challenges/21?background_color=white&color=black&font_family=%22Helvetica+Neue%22%2C+Arial%2C+sans-serif&font_size=25"
+        style="position: absolute; left: 20%; border: none"
+        height="200"
+        width="300"
+      ></iframe>
+      <iframe
+        title="Tons of waste dumped"
+        src="https://www.theworldcounts.com/embed/challenges/63?background_color=white&color=black&font_family=%22Helvetica+Neue%22%2C+Arial%2C+sans-serif&font_size=25"
+        style="position: absolute; left: 40%; border: none"
+        height="200"
+        width="300"
+      ></iframe>
+      <iframe
+        title="Number of plastic bags produced"
+        src="https://www.theworldcounts.com/embed/challenges/105?background_color=white&color=black&font_family=%22Helvetica+Neue%22%2C+Arial%2C+sans-serif&font_size=25"
+        style="position: absolute; left: 60%; border: none"
+        height="200"
+        width="300"
+      ></iframe>
+
+      <br /><br />
+      <br>
+      Welcome to Project Save the World.
+    </h1>
   </body>
+
+  <script>
+    function myFunction() {
+      var x = document.getElementById("myNavbar");
+      if (x.className === "navbar") {
+        x.className += " responsive";
+      } else {
+        x.className = "navbar";
+      }
+    }
+  </script>
 </html>
