@@ -6,7 +6,7 @@ var config = {
     physics: {
         default: 'arcade',
         arcade: {
-            gravity: {y: 700},
+            gravity: {y: 1000},
             debug: false
         }
     },
@@ -130,9 +130,10 @@ function create() {
     spike8 = this.add.image(2960, 0, 'spike')
     spike9 = this.add.image(3150, 0, 'spike')
     spike10 = this.add.image(3250, 0, 'spike')
-    spike11 = this.add.image(4025, 0, 'spike')
-
-
+    spike11 = this.add.image(4550, 0, 'spike')
+    spike12 = this.add.image(5340, 0, 'spike')
+    spike13 = this.add.image(4800, 0, 'spike')
+    spike14 = this.add.image(5005, 0, 'spike')
     this.physics.add.collider(groundLayer, spike0);
     this.physics.add.collider(groundLayer, spike1);
     this.physics.add.collider(groundLayer, spike2);
@@ -145,7 +146,9 @@ function create() {
     this.physics.add.collider(groundLayer, spike9);
     this.physics.add.collider(groundLayer, spike10);
     this.physics.add.collider(groundLayer, spike11);
-
+    this.physics.add.collider(groundLayer, spike12);
+    this.physics.add.collider(groundLayer, spike13);
+    this.physics.add.collider(groundLayer, spike14);
 
     this.spikes = this.physics.add.group({
         allowGravity: false,
@@ -163,7 +166,9 @@ function create() {
     this.spikes.add(spike9);
     this.spikes.add(spike10);
     this.spikes.add(spike11);
-    
+    this.spikes.add(spike12);
+    this.spikes.add(spike13);
+    this.spikes.add(spike14);
 
     this.raccoons = this.physics.add.group({
         allowGravity: false,
