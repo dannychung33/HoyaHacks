@@ -6,7 +6,7 @@ var config = {
     physics: {
         default: 'arcade',
         arcade: {
-            gravity: {y: 600},
+            gravity: {y: 700},
             debug: false
         }
     },
@@ -36,6 +36,7 @@ function preload() {
     this.load.image('coin', 'assets/bottle-collect.png');
     // load spike png
     this.load.image('spike', 'assets/spike.png');
+    this.load.image('upside_down_spike', 'assets/rotatedSpike.png')
     this.load.image('background', 'assets/city-background-2.png');
     this.load.image('raccoon', 'assets/raccoon.png');
     // player animations
@@ -64,11 +65,11 @@ function create() {
     coinLayer = map.createDynamicLayer('Coins', coinTiles, 0, 0);
 
     // set the boundaries of our game world
-    this.physics.world.bounds.width = groundLayer.width + 500;
+    this.physics.world.bounds.width = groundLayer.width;
     this.physics.world.bounds.height = groundLayer.height;
 
     // create the player sprite    
-    player = this.physics.add.sprite(200, 900, 'player');
+    player = this.physics.add.sprite(200,900, 'player');
     player.setBounce(0.2); // our player will bounce from items
     player.setCollideWorldBounds(true); // don't go out of the map    
     
@@ -117,27 +118,22 @@ function create() {
     // fix the text to the camera
     text.setScrollFactor(0);
     
-    raccoon1 = this.add.image(350, 800, 'raccoon');
-    raccoon2 = this.add.image(450, 1000, 'raccoon');
-    raccoon3 = this.add.image(550, 1000, 'raccoon');
-    raccoon4 = this.add.image(650, 1000, 'raccoon');
-    raccoon5 = this.add.image(750, 1000, 'raccoon');
-    raccoon6 = this.add.image(850, 1000, 'raccoon');
-    raccoonAttack();
-    
-    spike1  = this.add.image(300, 460,'spike');
-    spike2 = this.add.image(600, 460, 'spike')
-    spike3 = this.add.image(667, 460, 'spike')
-    spike4 = this.add.image(1200, 460, 'spike')
-    spike5 = this.add.image(600, 460, 'spike')
-    spike6 = this.add.image(600, 460, 'spike')
-    spike7 = this.add.image(600, 460, 'spike')
-    spike8 = this.add.image(600, 460, 'spike')
-    spike9 = this.add.image(600, 460, 'spike')
-    spike10 = this.add.image(600, 460, 'spike')
-    spike11 = this.add.image(600, 460, 'spike')
-    spike12 = this.add.image(600, 460, 'spike')
+    raccoon1 = this.add.image(400, 950, 'raccoon');
+    spike0 = this.add.image(48, 0, 'upside_down_spike');
+    spike1  = this.add.image(300, 0,'upside_down_spike');
+    spike2 = this.add.image(550, 0, 'upside_down_spike')
+    spike3 = this.add.image(850, 0, 'spike')
+    spike4 = this.add.image(1420, 0, 'spike')
+    spike5 = this.add.image(1900, 0, 'spike')
+    spike6 = this.add.image(2250, 0, 'spike')
+    spike7 = this.add.image(2470, 0, 'spike')
+    spike8 = this.add.image(2960, 0, 'spike')
+    spike9 = this.add.image(3150, 0, 'spike')
+    spike10 = this.add.image(3250, 0, 'spike')
+    spike11 = this.add.image(4025, 0, 'spike')
 
+
+    this.physics.add.collider(groundLayer, spike0);
     this.physics.add.collider(groundLayer, spike1);
     this.physics.add.collider(groundLayer, spike2);
     this.physics.add.collider(groundLayer, spike3);
@@ -149,34 +145,35 @@ function create() {
     this.physics.add.collider(groundLayer, spike9);
     this.physics.add.collider(groundLayer, spike10);
     this.physics.add.collider(groundLayer, spike11);
-    this.physics.add.collider(groundLayer, spike12);
+
 
     this.spikes = this.physics.add.group({
         allowGravity: false,
         immovable: true
       });
+    this.spikes.add(spike0)
     this.spikes.add(spike1);
     this.spikes.add(spike2);
     this.spikes.add(spike3);
     this.spikes.add(spike4);
     this.spikes.add(spike5);
     this.spikes.add(spike6);
+    this.spikes.add(spike7);
+    this.spikes.add(spike8);
+    this.spikes.add(spike9);
     this.spikes.add(spike10);
     this.spikes.add(spike11);
-    this.spikes.add(spike12)
+    
 
     this.raccoons = this.physics.add.group({
         allowGravity: false,
     })
-
+    this.raccoons.add(raccoon1)
     this.physics.add.collider(groundLayer,raccoon1);
-
-    this.physics.add.overlap(player, this.raccoons, playerHit, null, this);    
 
     // overlap player with spikes
     this.physics.add.overlap(player, this.spikes, playerHit, null, this);
-    spike1.body.setSize(spike1.width, spike1.height - 20).setOffset(0,20);
-    spike2.body.setSize(spike2.width, spike2.height - 20).setOffset(0,20);
+    
     /*
     const spike = this.spikes.create(spike.x, spike.y + 200 - spike.height, 'spike').setOrigin(0,0);
     spike.body.setSize(spike.width, spike.height - 20).setOffset(0,20);
@@ -197,27 +194,25 @@ function collectCoin(sprite, tile) {
     text.setText(score); // set the text to show the current score
     return false;
 }
-var isGameOver = false;
+
 var startGame = true;
+
 function update(time, delta) {
     if(startGame){
-    if(isGameOver){
+    if(score == 20){
+        location.reload();
         return;
     }
-    var random = Math.floor((Math.random() * 100));
 
-    
-    
-    
     if (cursors.left.isDown)
     {
-        player.body.setVelocityX(-600);
+        player.body.setVelocityX(-400);
         player.anims.play('walk', true); // walk left
         player.flipX = true; // flip the sprite to the left
     }
     else if (cursors.right.isDown)
     {
-        player.body.setVelocityX(600);
+        player.body.setVelocityX(400);
         player.anims.play('walk', true);
         player.flipX = false; // use the original sprite looking to the right
     } else {
@@ -225,24 +220,23 @@ function update(time, delta) {
         player.anims.play('idle', true);
     }
     // jump 
-    if (cursors.up.isDown && player.body.onFloor())
-    {
-        player.body.setVelocityY(-500);        
-    }
-}
-  }
-  
-function raccoonAttack(){
-    raccoon1.y -= 1;
-}
-
+   
+     // jump 
+     if (cursors.up.isDown && player.body.onFloor())
+     {
+         player.body.setVelocityY(-600);        
+     }
+     if (cursors.down.isDown){
+         player.body.setVelocityY(600);
+     }
+  }}
 
 function playerHit(player, spike) {
     console.log('player hurt')
     
     player.body.setVelocity(0, 0);
-    player.setX(50);
-    player.setY(300);
+    player.setX(200);
+    player.setY(900);
     player.play('idle', true);
     player.setAlpha(0);
     let tw = this.tweens.add({
@@ -252,5 +246,6 @@ function playerHit(player, spike) {
       ease: 'Linear',
       repeat: 5,
     });
+    location.reload()
     return;
 }
