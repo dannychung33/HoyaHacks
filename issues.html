@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Project Save the World</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <style>
+
+            body {
+              font-family: Helvetica, sans-serif;
+              color: #05386B;
+            }
+
+            
+        </style>
+
+        <link rel="stylesheet" href="webpage.css">
+    </head>
+    <body>
+
+        <div class="navbar" id="myNavbar">
+            
+            <a href="webpage.html" class="active">Home</a>
+            <a href="donate.html">Donate </a>
+            <a href="resources.html">Resources </a>
+            <a href="issues.html">Issues </a>
+            <a href="game.html" >Game </a>
+            <a href="about.html" >About</a>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+              </a>
+        </div>
+
+        
+
+        <h2>
+            <br><br><br>
+            Environmental Crises and Solutions
+        </h2>
+
+        <p>Add videos, infographics, slides or text about the major environmental crises: climate change, 
+            animal agriculture, plastics and waste, deforestation, overfishing, fossil fuels.
+        </p>
+
+    </body>
+
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myNavbar");
+            if (x.className === "navbar") {
+                x.className += " responsive";
+            } 
+            else {
+                x.className = "navbar";
+            }
+        }
+        
+        
+    </script>
+
+</html>
