@@ -134,6 +134,7 @@ function create() {
     spike12 = this.add.image(5340, 0, 'spike')
     spike13 = this.add.image(4800, 0, 'spike')
     spike14 = this.add.image(5005, 0, 'spike')
+    
     this.physics.add.collider(groundLayer, spike0);
     this.physics.add.collider(groundLayer, spike1);
     this.physics.add.collider(groundLayer, spike2);
@@ -179,15 +180,6 @@ function create() {
     // overlap player with spikes
     this.physics.add.overlap(player, this.spikes, playerHit, null, this);
     
-    /*
-    const spike = this.spikes.create(spike.x, spike.y + 200 - spike.height, 'spike').setOrigin(0,0);
-    spike.body.setSize(spike.width, spike.height - 20).setOffset(0,20);
-    console.log(spike)
-    // Key line
-    this.physics.add.collider(this.player, this.spikes, this.playerHit, null, this);
-    //console.log(spikeObject.height, spikeObject.width)
-  
-    */
 }
 
 
@@ -224,7 +216,6 @@ function update(time, delta) {
         player.body.setVelocityX(0);
         player.anims.play('idle', true);
     }
-    // jump 
    
      // jump 
      if (cursors.up.isDown && player.body.onFloor())
